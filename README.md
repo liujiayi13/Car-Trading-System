@@ -1,4 +1,4 @@
-# CarManagementSystem
+# CarTradingSystem
 
 这是一个用Django开发的二手车交易系统，
 用户可以注册，登陆和注销，有三种用户，分别为买家，卖家和管理员。
