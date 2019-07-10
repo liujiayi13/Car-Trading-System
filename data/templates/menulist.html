@@ -1,0 +1,42 @@
+{% extends 'adminlayout.html' %}
+{#{% load crm %}#}
+{% block content %}
+    <div style="margin: 5px;">
+{#<a href="/data/addmenu/" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> 添加订单信息</a>#}
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>汽车名称</th>
+                <th>订单状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in menu_queryset %}
+                <tr>
+                    <td>{{ row.id }}</td>
+                    <td>{{ row.carname }}</td>
+                    <td>{{ row.carstatus }}</td>
+                    <td>
+{#                        <a href="/data/editmenu/{{ row.id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>#}
+{#                        |#}
+                        <a href="/data/delmenu/{{ row.id }}" style="color: red;">
+                             <i class="fa fa-trash-o" aria-hidden="true"></i>
+
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="bot">
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-lg"
+                style="float: right;margin-right: 50px;margin-top: 50px;">
+                {{ page_html|safe }}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'selllayout.html' %}
+
+{% block content %}
+    <form class="form-horizontal" method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.carname.label }}</label>
+            <div class="col-sm-10">
+                {{ form.carname }}
+                <span style="color: red;">{{ form.carname.errors.0 }}</span>
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.cartype.label }}</label>
+            <div class="col-sm-10">
+                {{ form.cartype }}
+                <span style="color: red;">{{ form.cartype.errors.0 }}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.carfirm.label }}</label>
+            <div class="col-sm-10">
+                {{ form.carfirm }}
+                <span style="color: red;">{{ form.carfirm.errors.0 }}</span>
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.carsell.label }}</label>
+            <div class="col-sm-10">
+                {{ form.carsell }}
+                <span style="color: red;">{{ form.carsell.errors.0 }}</span>
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.carphone.label }}</label>
+            <div class="col-sm-10">
+                {{ form.carphone }}
+                <span style="color: red;">{{ form.carphone.errors.0 }}</span>
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.carsize.label }}</label>
+            <div class="col-sm-10">
+                {{ form.carsize }}
+                <span style="color: red;">{{ form.carsize.errors.0 }}</span>
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.carbetter.label }}</label>
+            <div class="col-sm-10">
+                {{ form.carbetter }}
+                <span style="color: red;">{{ form.carbetter.errors.0 }}</span>
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.carother.label }}</label>
+            <div class="col-sm-10">
+                {{ form.carother }}
+                <span style="color: red;">{{ form.carother.errors.0 }}</span>
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.carage.label }}</label>
+            <div class="col-sm-10">
+                {{ form.carage }}
+                <span style="color: red;">{{ form.carage.errors.0 }}</span>
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form.catstatus.label }}</label>
+            <div class="col-sm-10">
+                {{ form.catstatus }}
+                <span style="color: red;">{{ form.catstatus.errors.0 }}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-primary" value="提交">
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'selllayout.html' %}
+{% block content %}
+    <div style="margin: 5px;">
+<a href="/data/addsell/" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> 发布车辆信息</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>汽车名字</th>
+                <th>经销商</th>
+                <th>类别</th>
+                <th>车主姓名</th>
+                <th>车辆价格</th>
+                <th>优惠信息</th>
+                <th>里程信息</th>
+                <th>车龄信息</th>
+                <th>成交状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in sell_queryset %}
+                <tr>
+                    <td>{{ row.id }}</td>
+                    <td>{{ row.carname }}</td>
+                    <td>{{ row.carfirm }}</td>
+                    <td>{{ row.carsell }}</td>
+                    <td>{{ row.carphone }}</td>
+                    <td>{{ row.carsize }}</td>
+                    <td>{{ row.carbetter }}</td>
+                    <td>{{ row.carother }}</td>
+                    <td>{{ row.carage }}</td>
+                    <td>{{ row.catstatus }}</td>
+                    <td>
+                        <a href="/data/editsell/{{ row.id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        |
+                        <a href="/data/delsell/{{ row.id }}" style="color: red;">
+                             <i class="fa fa-trash-o" aria-hidden="true"></i>
+
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="bot">
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-lg"
+                style="float: right;margin-right: 50px;margin-top: 50px;">
+                {{ page_html|safe }}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

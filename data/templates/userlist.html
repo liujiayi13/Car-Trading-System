@@ -1,0 +1,44 @@
+{% extends 'adminlayout.html' %}
+{#{% load crm %}#}
+{% block content %}
+    <div style="margin: 5px;">
+<a href="/data/adduser/" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> 添加用户信息</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>用户类型</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in user_queryset %}
+                <tr>
+                    <td>{{ row.id }}</td>
+                    <td>{{ row.username }}</td>
+                    <td>{{ row.password }}</td>
+                    <td>{{ row.usertype }}</td>
+                    <td>
+                        <a href="/data/edituser/{{ row.id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        |
+                        <a href="/data/deluser/{{ row.id }}" style="color: red;">
+                             <i class="fa fa-trash-o" aria-hidden="true"></i>
+
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="bot">
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-lg"
+                style="float: right;margin-right: 50px;margin-top: 50px;">
+                {{ page_html|safe }}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
