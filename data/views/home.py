@@ -9,6 +9,7 @@ from data.form.user import UserModelForm
 def index(request):
     return render(request, 'index.html')
 
+
 def login(request):
     errmsg = ""
     if request.method == "POST":
@@ -26,6 +27,7 @@ def login(request):
             else:
                 return redirect('/data/carlist/')
     return render(request, 'login.html')
+
 
 def register(request):
     err_msg = ''
@@ -62,6 +64,7 @@ def buy(request,nid):
         obj.save()
         return render(request, 'alert.html')
 
+
 def search(request):
     if request.method == "POST":
         tmp = request.POST["ipholder"]
@@ -75,9 +78,12 @@ def search(request):
             return render(request, 'buylist.html', {"buy_queryset": cartype_queryset})
         return render(request, 'buylist.html', {"buy_queryset": carname_queryset})
 
+
 def selllist(request):
     sell_queryset = models.CarInfo.objects.all()
     return render(request, 'selllist.html', {"sell_queryset": sell_queryset})
+
+
 def addsell(request):
     if request.method == "GET":
         form = SellModelForm()
@@ -87,6 +93,8 @@ def addsell(request):
         form.save()
         return redirect('/data/selllist/')
     return render(request, 'sell_form.html', {"form": form})
+
+
 def editsell(request,nid):
     obj = models.CarInfo.objects.filter(id=nid).first()
     if request.method == "GET":
@@ -97,6 +105,8 @@ def editsell(request,nid):
         form.save()
         return redirect('/data/selllist/')
     return render(request, 'sell_form.html', {"form": form})
+
+
 def delsell(request,nid):
     models.CarInfo.objects.filter(id=nid).delete()
     return redirect('/data/selllist/')
@@ -111,6 +121,7 @@ def carlist(request):
     car_queryset = models.CarInfo.objects.all()
     return render(request, 'carlist.html', {"car_queryset": car_queryset})
 
+
 def editcar(request,nid):
     obj = models.CarInfo.objects.filter(id=nid).first()
     if request.method == "GET":
@@ -122,6 +133,7 @@ def editcar(request,nid):
         return redirect('/data/carlist/')
     return render(request, 'car_form.html', {"form": form})
 
+
 def delcar(request,nid):
     models.CarInfo.objects.filter(id=nid).delete()
     return redirect('/data/carlist/')
@@ -130,6 +142,7 @@ def delcar(request,nid):
 def typelist(request):
     type_queryset = models.Cartype.objects.all()
     return render(request, 'typelist.html',{"type_queryset":type_queryset})
+
 
 def addtype(request):
     if request.method == "GET":
@@ -141,6 +154,7 @@ def addtype(request):
         return redirect('/data/typelist/')
     return render(request, 'type_form.html', {"form": form})
 
+
 def edittype(request,nid):
     obj = models.Cartype.objects.filter(id=nid).first()
     if request.method == "GET":
@@ -151,6 +165,8 @@ def edittype(request,nid):
         form.save()
         return redirect('/data/typelist/')
     return render(request, 'type_form.html', {"form": form})
+
+
 def deltype(request,nid):
     models.Cartype.objects.filter(id=nid).delete()
     return redirect('/data/typelist/')
@@ -159,6 +175,8 @@ def deltype(request,nid):
 def firmlist(request):
     firm_queryset = models.Carfirm.objects.all()
     return render(request, 'firmlist.html', {"firm_queryset": firm_queryset})
+
+
 def addfirm(request):
     if request.method == "GET":
         form = FirmModelForm()
@@ -168,6 +186,8 @@ def addfirm(request):
         form.save()
         return redirect('/data/firmlist/')
     return render(request, 'firm_form.html', {"form": form})
+
+
 def editfirm(request,nid):
     obj = models.Carfirm.objects.filter(id=nid).first()
     if request.method == "GET":
@@ -178,13 +198,18 @@ def editfirm(request,nid):
         form.save()
         return redirect('/data/firmlist/')
     return render(request, 'firm_form.html', {"form": form})
+
+
 def delfirm(request,nid):
     models.Carfirm.objects.filter(id=nid).delete()
     return redirect('/data/firmlist/')
 
+
 def userlist(request):
     user_queryset = models.UserManager.objects.all()
     return render(request, 'userlist.html', {"user_queryset": user_queryset})
+
+
 def adduser(request):
     if request.method == "GET":
         form = UserModelForm()
@@ -194,6 +219,8 @@ def adduser(request):
         form.save()
         return redirect('/data/userlist/')
     return render(request, 'user_form.html', {"form": form})
+
+
 def edituser(request,nid):
     obj = models.UserManager.objects.filter(id=nid).first()
     if request.method == "GET":
@@ -204,6 +231,8 @@ def edituser(request,nid):
         form.save()
         return redirect('/data/userlist/')
     return render(request, 'user_form.html', {"form": form})
+
+
 def deluser(request,nid):
     models.UserManager.objects.filter(id=nid).delete()
     return redirect('/data/userlist/')
@@ -213,6 +242,7 @@ def deluser(request,nid):
 def delmenu(request,nid):
     models.OrderManager.objects.filter(id=nid).delete()
     return redirect('/data/menulist/')
+
 
 def menulist(request):
     menu_queryset = models.OrderManager.objects.all()

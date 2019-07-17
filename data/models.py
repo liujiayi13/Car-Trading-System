@@ -43,7 +43,8 @@ class CarInfo(models.Model):
     carbetter = models.CharField(verbose_name="优惠信息",max_length=32)
     carother = models.CharField(verbose_name="车辆里程",max_length=32)
     carage = models.CharField(verbose_name="车辆车龄",max_length=32,default=None)
-    catstatus = models.CharField(verbose_name="成交状态",max_length=32,default="待支付")
+    catstatus = models.CharField(verbose_name="成交状态",
+                                 choices=(('待支付','待支付'),('已支付','已支付')),max_length=32, default="待支付")
 
     def __str__(self):
         return self.carname

@@ -16,7 +16,7 @@ class SellModelForm(ModelForm):
             'carbetter':forms.TextInput(attrs={'class':'form-control','placeholder':'优惠'}),
             'carother':forms.TextInput(attrs={'class':'form-control','placeholder':'里程信息'}),
             'carage':forms.TextInput(attrs={'class':'form-control','placeholder':'车龄信息'}),
-            'catstatus':forms.TextInput(attrs={'class':'form-control','placeholder':'成交状态'}),
+            'catstatus':forms.Select(attrs={'class':'form-control','placeholder':'成交状态'}),
 
         }
         error_messages = {
