@@ -19,10 +19,4 @@
 
 `python manage.py runserver`
 
-要注册管理员，请输入
-
-`python manage.py createsuperuser`
-
-并输入用户名和密码（此时密码不可见）
-
 再在浏览器中输入http://127.0.0.1:8000/data/login 即可注册登陆并访问网站！
