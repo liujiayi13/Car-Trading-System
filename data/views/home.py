@@ -72,11 +72,11 @@ def search(request):
         carname_queryset = models.CarInfo.objects.filter(carname=tmp)
         if not carname_queryset:
             print(tmp)
-            cartype_queryset = models.CarInfo.objects.filter(carsize=tmp)
+            cartype_queryset = models.CarInfo.objects.filter(cartype__type=tmp)
             if not cartype_queryset:
-                return render(request, 'buylist.html', {"buy_queryset": cartype_queryset})
-            return render(request, 'buylist.html', {"buy_queryset": cartype_queryset})
-        return render(request, 'buylist.html', {"buy_queryset": carname_queryset})
+                return render(request, 'buylist.html', {"buy_queryset": cartype_queryset, "content":tmp})
+            return render(request, 'buylist.html', {"buy_queryset": cartype_queryset, "content":tmp})
+        return render(request, 'buylist.html', {"buy_queryset": carname_queryset, "content":tmp})
 
 
 def selllist(request):
